@@ -1,26 +1,38 @@
 import './Sidebar.css';
 import { assets } from '../../assets/assets';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { Context } from '../../context/context';
 const Sidebar = () => {
 
   const [extended, setExtended] = useState(false);
-  
+  const {onSent, prevPrompts, setShowResult , setPrevPrompts} = useContext(Context);
+
+
   return (
     <div className="sidebar">
       <div className="top">
            <img onClick={()=>setExtended(prev=>!prev)} className="menu" src= {assets.menu_icon} alt="" />
-           <div className="newchat">
+           <div className="newchat" onClick={()=>{
+                setShowResult(false);
+                setPrevPrompts([]);
+                }}>
               <img src={assets.plus_icon} alt="" />
               {extended?<p>New Chat</p>:null}
+
            </div>
            {extended?<div className="recent">
-              <p className="recent-title">
-                  Recent
-              </p>
-              <div className="recent-entry">
-                  <img src={assets.message_icon} alt="" />
-                  <p>Messages</p>
-              </div>
+              <p className="recent-title">Recent</p>
+
+              {prevPrompts.map((item, index)=>{
+                                 return(
+                                  <div key={index} className="recent-entry" onClick = {()=>onSent(item)}>
+                                  <img src={assets.message_icon} alt="" />
+                                  <p>{item.slice(0,12)}{item.length >= 12 ? "..." : null } </p>
+                                </div>
+              
+                                 )
+                            })}
+              
            </div>:null}
       </div>
 
