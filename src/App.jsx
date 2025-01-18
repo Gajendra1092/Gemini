@@ -1,4 +1,4 @@
-import Main from './components/Main/Main'
+import Main from './components/main/Main'
 import Sidebar from './components/sidebar/sidebar'
 
 const App = () => {
