@@ -19,12 +19,13 @@ const ContextProvider = ({children}) => {
         setLoading(true);
         setShowResult(true);
         setRecentPrompt(input);
-
+       
         const response = await run(input).catch(error => {
             console.error("Error fetching response:", error);
             setLoading(false);
             return ""; 
         });
+
     
         // Process response
         let responseArray = response.split("**");

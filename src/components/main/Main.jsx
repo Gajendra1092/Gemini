@@ -40,25 +40,25 @@ useEffect(() => {
             </div>
             <div className="cards" >
                 
-                <div className="card" onClick={()=> onSent("Suggest beautiful places to see on an upcoming road trip.")}>
+                <div className="card" onClick={() => {const ip = "Suggest beautiful places to see on an upcoming road trip."; onSent(ip); setPrevPrompts(prev => [...prev, ip]); }}>
                     <p>Suggest beautiful places to see on an upcoming road trip.</p>
                     <img src={assets.compass_icon} alt="" />
                 </div>
             
             
-                <div className="card" onClick={()=> onSent("Briefly summarize this concept: urban planning.")}>
+                <div className="card" onClick={()=> {const ip = "Briefly summarize this concept: urban planning."; onSent(ip); setPrevPrompts(prev => [...prev, ip]);}}>
                     <p>Briefly summarize this concept: urban planning.</p>
                     <img src={assets.bulb_icon} alt="" />
                 </div>
             
             
-                <div className="card" onClick={()=> onSent("Brainstorm team bonding activities for out work retreat.")}>
+                <div className="card" onClick={()=> { const ip = "Brainstorm team bonding activities for out work retreat." ; onSent(ip); setPrevPrompts(prev => [...prev, ip])}}>
                     <p>Brainstorm team bonding activities for out work retreat.</p>
                     <img src={assets.message_icon} alt="" />
                 </div>
             
             
-                <div className="card" onClick={()=> onSent("Improve the readability of the code.")}>
+                <div className="card" onClick={()=> {const ip = "Improve the readability of the code." ;onSent(ip);setPrevPrompts(prev => [...prev, ip])}}>
                     <p>Improve the readability of the code.</p>
                     <img src={assets.code_icon} alt="" />
                 </div>

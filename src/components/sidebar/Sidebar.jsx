@@ -7,7 +7,6 @@ const Sidebar = () => {
   const [extended, setExtended] = useState(false);
   const {onSent, prevPrompts, setShowResult , setPrevPrompts} = useContext(Context);
 
-
   return (
     <div className="sidebar">
       <div className="top">
@@ -20,7 +19,7 @@ const Sidebar = () => {
               {extended?<p>New Chat</p>:null}
 
            </div>
-           {extended?<div className="recent">
+          {extended?<div className="recent">
               <p className="recent-title">Recent</p>
 
               {prevPrompts.map((item, index)=>{
@@ -31,8 +30,7 @@ const Sidebar = () => {
                                 </div>
               
                                  )
-                            })}
-              
+                            })}  
            </div>:null}
       </div>
 
